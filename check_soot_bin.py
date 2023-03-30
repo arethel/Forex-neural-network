@@ -23,7 +23,7 @@ for idx in np.arange(analyze_ticks-1, ticksArray.shape[0]-result_ticks-1):
     if(abs(result_sum)>20):
         kol+=1
         ob+=1
-    elif np.random.rand()<0.01:
+    elif np.random.rand()<0.1:
         ob +=1
 
 print(kol/ob*100)
