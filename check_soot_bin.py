@@ -12,6 +12,9 @@ analyze_ticks=51
 result_ticks=20
 kol = 0
 ob = 0
+
+max_sum = 0
+
 for idx in np.arange(analyze_ticks-1, ticksArray.shape[0]-result_ticks-1):
     
     # analyze_set = np.array([])
@@ -20,11 +23,14 @@ for idx in np.arange(analyze_ticks-1, ticksArray.shape[0]-result_ticks-1):
     result_sum = 0
     for i in np.arange(result_ticks):
        result_sum+=ticksArray[idx+i+1][1]
-    if(abs(result_sum)>20):
+    if(result_sum>max_sum):
+        max_sum=result_sum
+    if(abs(result_sum)>40):
         kol+=1
         ob+=1
-    elif np.random.rand()<0.1:
+    elif np.random.rand()<0.01:
         ob +=1
 
 print(kol/ob*100)
-print(ob)
+print(kol)
+print(max_sum)
